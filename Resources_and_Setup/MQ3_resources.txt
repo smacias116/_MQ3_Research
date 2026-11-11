@@ -1,0 +1,8 @@
+ADB package location: C:\platform-tools
+
+Tools installed to the research:
+Meta Horizon app (for iPhone)
+Meta Quest Developer Hub
+SDK Platform tools to control ADB (for Laptop)
+Oculus ADB Drivers --> Install the .inf Driver File
+Meta Quest Developer Hub for Windows on your laptop.

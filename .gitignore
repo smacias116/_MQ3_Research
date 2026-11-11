@@ -218,3 +218,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Large installers (download separately, see README)
+Resources_and_Setup/Meta-Quest-Developer-Hub-6.4.1.exe.zip
