@@ -1,11 +1,11 @@
 # _MQ3_Research
 
-## Meta Quest 3 (MQ3) Research Project: Energy Headset Consumption in Virtual Reality 360-degree Video Streaming
+## Energy Headset Consumption in Virtual Reality 360-degree Video Streaming
 
-Please read this document carefully. It contains only two parts: **Notes** and **Folders**.
+Please read this document carefully. It contains only two parts: **Notes** and **Folders & Files**.
 
 - **Notes** lists some important considerations for the proper functioning of this project.
-- **Folders** describes where the files are located.
+- **Folders & Files** describes where the files are located.
 
 > Please update any information here if something mentioned in this document changes.
 
@@ -13,80 +13,60 @@ Please read this document carefully. It contains only two parts: **Notes** and *
 
 ## 📝 Notes
 
-- ⚠️ **Nothing is `.gitignore` protected!** Be careful what you edit and merge, especially the raw and post-processed data produced by the experiment (CSV files inside `/Metrics`).
-- 🔒 For security, **Pull Requests are enforced** in this repository. After you commit and push, you will need to review your changes before merging them.
-- 📓 When working with the Jupyter Notebooks (files within `/Data_analysis`), you will need to import the CSV files. To make it easier, just find and replace the following path with your local folder:
-
+- **Nothing is .gitignore protected!** Be careful what you edit and merge, especially the raw and post-processed data produced by the experiment (CSV files inside `/Metrics`).
+- For security, **Pull Requests are enforced** in this repository. After you commit and push, you will need to review your changes before merging them.
+- When working with the Jupyter Notebooks (files within `/Data_analysis`), you will need to import the CSV files. To make it easier, just find and replace the following path with your local folder:
   ```python
   data_dir = Path(r"C:\Users\user\_MQ3_Research\Metrics\MQ3_logs_S1-S13")
   ```
-
-  If you change this, don't push the change to the repository (or let others know about the path change for easier debugging).
-
-- 📦 Within `/Resources_and_Setup`, there should be the file *Meta-Quest-Developer-Hub-6.4.1.exe.zip*. This is the only item not included in the repository. It is the Meta Quest Developer Hub, the app needed to connect the Meta Quest 3 headset to a laptop (mentioned in the paper's Methodology section). The app is available at: [include website link]
-- 📄 The main paper is available on [Overleaf]. Ask for permissions if needed.
-- 🔁 If you want to replicate the metrics logs, you will need to update the following line in the *MQ3_power_logger_V1.py* script:
-
+  > If you change this, don't push the change to the repository (or let others know about the path change for easier debugging).
+- Within `/Resources_and_Setup`, there should be the file *Meta-Quest-Developer-Hub-6.4.1.exe.zip*. This is the only item not included in the repository. It is the [Meta Quest Developer Hub](https://developers.meta.com/vr/downloads/package/oculus-developer-hub-win/6.4.1/), the app needed to connect the Meta Quest 3 headset to a laptop (mentioned in the paper's Methodology section).
+- The main paper is available on [Overleaf](https://www.overleaf.com/project/6acfbb3cb9afa0ae89205f9d).
+  
+  > Ask for permissions if needed.
+- If you want to replicate the metrics logs in your laptop, you will need to update the following line in the *MQ3_power_logger_V1.py* script:
   ```python
   target_device = "192.168.0.240:5555"
   ```
-
 ---
 
-## 📁 Folders
+## 📁 Folders & Files
 
-### `/Data_analysis`
-Contains the Jupyter notebooks that analyze the data.
-
+### `/Data_analysis` <sub> Contains the Jupyter notebooks that analyze the data. </sub>
 - The main folder contains the grouped analysis (all sets considered in the paper in a single notebook). Here you will find all (or at least most) of the analyses, tables, and graphs included in the paper.
 - The subfolder `/Others` contains single-set analyses and grouped-set analyses.
 
-### `/Docs`
-Contains supporting documents such as:
-
+### `/Docs` <sub> Contains supporting documents such as: </sub>
 - Experimental setup diagram
 - Text of the paper's sections (Spanish and English)
 - Shortcut to plots (see `/Metrics`)
-- *Tables_examples.xlsx* — **especially important**, since it contains the renaming of the Sets (for instance, XXXXXX) used in the paper and the Jupyter notebooks.
-
-### `/Metrics`
-Contains the files needed for metrics logging, plus the metrics generated:
-
+- *Tables_examples.xlsx* is **especially important**, since it contains the renaming of the Sets (for instance, Set S3 is renamed as D1 in the paper, and S13 is renamed as S3).
+  
+### `/Metrics` <sub> Contains the files needed for metrics logging, plus the metrics generated: </sub>
 - Subfolders of type `/MQ3_logs_MM-DD-YYYY` contain raw data (files of type *metrics_log_[timestamp].csv*) and post-processed data (files of type *metrics_log_power_[timestamp].csv*).
   > ⚠️ **IMPORTANT:** This is the original data generated by the experimental work. **Do not modify it!**
-  - The subfolder `/Network_SpeedTest` contains screenshots of the network speed before each recording.
+- The subfolders `/MQ3_logs_MM-DD-YYYY/Network_SpeedTest` contain screenshots of the network speed before each recording.
 - The subfolder `/Plots` contains the files generated by the Jupyter notebooks.
   > ⚠️ **IMPORTANT:** Be careful when running the Python scripts: if you don't change the file name, the existing file will be overwritten. You can also change the storage path in the scripts; in that case, don't push the change to the repository (or let others know about the path change for easier debugging).
-- *MQ3_power_logger_V1.py* — the script used for metrics logging. It runs in a command-line shell (mentioned in the paper's Methodology section).
+- *MQ3_power_logger_V1.py* is the script used for metrics logging. It runs in a command-line shell (mentioned in the paper's Methodology section).
   > ⚠️ **IMPORTANT:** You will need to update the following line to target your MQ3 headset–laptop connection:
   > ```python
   > target_device = "192.168.0.240:5555"
   > ```
-- *MQ3_power_logger_README.txt* — contains more information about *MQ3_power_logger_V1.py*.
+- *MQ3_power_logger_README.txt* contains more information about *MQ3_power_logger_V1.py*.
 
-### `/mock_session`
-Contains the first sets of experiments (not considered in the paper).
+### `/Research_docs` <sub> Contains other related papers and personal notes. </sub>
 
-### `/Research_docs`
-Contains other related papers and personal notes.
+### `/Resources_and_Setup` <sub>  Tools needed for the experimental work. </sub>
 
-### `/Resources_and_Setup`
-Tools needed for the experimental work. This folder is missing *Meta-Quest-Developer-Hub-6.4.1.exe.zip* (see **Notes** above).
+### `/mock_session` <sub> Contains the first sets of experiments (not considered in the paper). </sub>
 
----
-
-## 📄 Root Files
-
-| File | Description |
-|------|-------------|
-| *MQ3_session_report.docx* | Explains how the logs were taken. It is related to *MQ3_sessions_list.xlsx*. |
-| *MQ3_sessions_list.xlsx* | ⚠️ **IMPORTANT:** Lists all the experimental work by Set-Video (see details below). |
-| *TO_DO.docx* | Personal document used to track pending work from the meetings between Dr. Raza and Santi during Fall 2026. |
-
-**_MQ3_sessions_list.xlsx_** provides important information for each playback:
-
-- Video information (name, YouTube link, etc.)
-- Experimental conditions (initial SOC, user state, etc.)
-- Network speed (right before starting the recording)
-- Post-processed CSV generated (`current_name` column)
-- Renamed file as per Set-Video-Conditions (`new_name_csv` column)
+### Root Files:
+### &emsp; `MQ3_session_report.docx`  <sub> Explains how the logs were taken. It is related to *MQ3_sessions_list.xlsx*. </sub> <br/>
+### &emsp; `MQ3_sessions_list.xlsx`  <sub> Lists all the logs (~70 as per 11/11/2026) by Set-Video:. </sub> <br/>
+- Video information (name, YouTube link, etc.) <br/>
+- Experimental conditions (initial SOC, user state, etc.) <br/>
+- Network speed (right before starting the recording) <br/>
+- Post-processed CSV generated (`current_name` column) <br/>
+- File renamed as (`new_name_csv` column) <br/>
+### &emsp; `TO_DO.docx` <sub> Personal document used to track pending tasks & meetings guidelines (Fall 2026). </sub> <br/>
